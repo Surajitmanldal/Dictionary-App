@@ -51,24 +51,29 @@ const dictionary = async () => {
         card.classList.add('show');
 
         const audioUrl = dataWord[0].phonetics[0]?.audio;
-
-        sound.replaceWith(sound.cloneNode(true));
         const newSound = document.getElementById('sound');
 
-        newSound.addEventListener('click', () => {
-            if (audioUrl) {
-                // Stop previous audio if playing
-                if (currentAudio) {
-                    currentAudio.pause();
-                    currentAudio = null;
-                }
-                // Create and play new audio
-                currentAudio = new Audio(audioUrl);
-                currentAudio.play();
-            } else {
+        // Remove previous event listeners
+        const newSoundClone = newSound.cloneNode(true);
+        newSound.parentNode.replaceChild(newSoundClone, newSound);
+
+        newSoundClone.addEventListener('click', () => {
+            if (!audioUrl) {
                 alert("Sorry, audio not available for this word");
+                return;
             }
+
+            if (currentAudio) {
+                currentAudio.pause();
+                currentAudio = null;
+            }
+
+            currentAudio = new Audio(audioUrl);
+            currentAudio.play().catch(error => {
+                console.error('Audio playback failed:', error);
+            });
         });
+
         // console.log(dataWord[0]['word'])
         // console.log(dataWord[0]['meanings'][0]['partOfSpeech'])
         // console.log(dataWord[0]['meanings'][0]['definitions'][0]['definition'])
