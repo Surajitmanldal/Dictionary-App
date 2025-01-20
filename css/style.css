@@ -153,6 +153,27 @@ header h1:hover {
     box-shadow: 0 4px 8px rgba(66, 19, 186, 0.2);
 }
 
+.loading-spinner {
+    display: none;
+    width: 50px;
+    height: 50px;
+    border: 5px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 5px solid #4213ba;
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
 .card {
     display: none;
     /* Hide by default */
