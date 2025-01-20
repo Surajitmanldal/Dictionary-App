@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dictionary App</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/reponsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="shortcut icon"
+        href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_RsZeVUun88dhvRcM7XiCG3JpIzZ52aqN-A&s"
+        type="image/x-icon">
+</head>
+
+<body>
+    <header>
+        <h1>Dictionary App</h1>
+        <div class="theme-toggle">
+            <i class="fas fa-sun" id="theme-icon"></i>
+        </div>
+    </header>
+
+    <div class="conatiner">
+        <div class="search">
+            <input type="text" placeholder="Enter a Word" id="search-word">
+            <button id="search-btn">Search</button>
+        </div>
+        <div class="card">
+            <div class="word-container">
+                <h2 class="word"></h2>
+                <i class="fas fa-volume-up" id="sound"></i>
+            </div>
+            <p class="part-of-speech"></p>
+            <p class="meaning"></p>
+            <p class="synonyms"></p>
+            <p class="example"></p>
+            <a href="" id="read"><button>Read More</button></a>
+        </div>
+    </div>
+    <div class="footer">
+        <p>&copy; 2024 Dictionary App. All rights reserved.<br> Developed By Surajit</p>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
