@@ -33,16 +33,21 @@ let read = document.getElementById("read");
 
 let currentAudio = null;
 const sound = document.getElementById('sound');
+const spinner = document.querySelector('.loading-spinner');
 
 
 const dictionary = async () => {
     try {
+        spinner.style.display = 'block';
+        const card = document.querySelector('.card');
+        card.style.display = 'none';
         let data = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${search_word.value}`);
         let dataWord = await data.json();
         if (!data.ok) {
             throw new Error("Word not found!");
         }
-        const card = document.querySelector('.card');
+        spinner.style.display = 'none';
+        card.style.display = 'block';
         card.classList.add('show');
 
         const audioUrl = dataWord[0].phonetics[0]?.audio;
@@ -82,6 +87,7 @@ const dictionary = async () => {
     catch (error) {
         alert(error.message);
         const card = document.querySelector('.card');
+        spinner.style.display = 'none';
         card.classList.remove('show');
     }
 }
